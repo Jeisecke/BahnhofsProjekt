@@ -53,4 +53,39 @@ public class Verwaltung {
         id = random.nextInt(1000000);
         return id;
     }
+
+    public void sortierenZüge(){
+        while (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
+            int kleinsterZug = 0;
+            boolean toogle = true;
+            if (toogle){
+                while (!gleis2.isEmpty()){
+                    if (gleis2.top().id < kleinsterZug){
+                        kleinsterZug = gleis2.top().id;
+                        schieneWechseln(gleis2, gleis1);
+                    }
+                }
+                while (!gleis1.isEmpty()){
+                    if (gleis1.top().id == kleinsterZug){
+                        schieneWechseln(gleis1, gleis3);
+                    }
+
+                }
+            }else{
+                while (!gleis1.isEmpty()){
+                    if (gleis1.top().id < kleinsterZug){
+                        kleinsterZug = gleis1.top().id;
+                        schieneWechseln(gleis1, gleis2);
+                    }
+                }
+                while (!gleis2.isEmpty()){
+                    if (gleis2.top().id == kleinsterZug){
+                        schieneWechseln(gleis2, gleis3);
+                    }
+                }
+            }
+            toogle = !toogle;
+        }
+    }
+
 }
