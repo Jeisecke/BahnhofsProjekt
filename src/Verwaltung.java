@@ -20,21 +20,25 @@ public class Verwaltung {
         gleis3 = new Stack<Wagon>();
 
         idList = new int[anzahlZüge]; //temporärer Wert! Bitte noch ändern!
-        
 
+        for (int i = 0; i < anzahlZüge; i++)
+        {
+            zugHinzufügen("Kartoffeln", gleis2);
+        }
     }
 
-    public void schieneWechseln(int von, int zu)
+    public void schieneWechseln(Stack von, Stack zu)
     {
-
+        final Wagon zuWechselnderzug = von.top();
+        von.pop();
     }
 
 
 
-    private void zugHinzufügen(int zugGröße, int target)
+    private void zugHinzufügen(String ladung, Stack target)
     {
         final int zugId = idGenerieren();
-        target.push(new Wagon(zugGröße, zugId));
+        target.push(new Wagon(ladung, zugId));
         idList[zugId] = zugId;
     }
 
