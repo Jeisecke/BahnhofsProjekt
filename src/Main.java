@@ -1,8 +1,8 @@
 package bahnhofverwaltung;
 
-public class Main {
+import java.util.Stack;
 
-    //3 Stacks:
+public class Main {
 
     public static void Main(String[] args) {
 
