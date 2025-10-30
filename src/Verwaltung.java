@@ -1,5 +1,5 @@
 package bahnhofverwaltung;
-
+import java.util.Random;
 
 public class Verwaltung {
 
@@ -38,8 +38,11 @@ public class Verwaltung {
         idList[zugId] = zugId;
     }
 
-    private int idGenerieren();
+    private int idGenerieren()
     {
-        return(0);
+        final int id;
+        Random random = new Random();
+        id = random.nextInt(1000000);
+        return id;
     }
 }
