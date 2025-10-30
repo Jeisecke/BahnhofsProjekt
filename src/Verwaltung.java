@@ -11,7 +11,7 @@ public class Verwaltung {
 
     private int[] idList;
 
-    public void Verwaltung(int anzahlZüge)
+    public Verwaltung(int anzahlZüge)
     {
         this.anzahlZüge = anzahlZüge;
 
@@ -23,7 +23,7 @@ public class Verwaltung {
 
         for (int i = 0; i < anzahlZüge; i++)
         {
-            zugHinzufügen("Kartoffeln", gleis2);
+            zugHinzufügen(anzahlZüge"+ Kartoffeln", gleis2);
         }
     }
 
