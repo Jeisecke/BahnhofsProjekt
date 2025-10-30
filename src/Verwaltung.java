@@ -23,17 +23,21 @@ public class Verwaltung {
 
         for (int i = 0; i < anzahlZüge; i++)
         {
-            zugHinzufügen(anzahlZüge"+ Kartoffeln", gleis2);
+            zugHinzufügen(anzahlZüge+" Kartoffeln", gleis2);
         }
     }
 
     public void schieneWechseln(Stack von, Stack zu)
     {
-        final Wagon zuWechselnderzug = von.top();
+        final Wagon zuWechselnderZug = von.top();
         von.pop();
+        zu.push(zuWechselnderZug);
     }
 
-
+    public Wagon getTopWagon(Stack target)
+    {
+        return(target.top());
+    }
 
     private void zugHinzufügen(String ladung, Stack target)
     {
