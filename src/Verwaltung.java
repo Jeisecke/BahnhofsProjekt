@@ -27,19 +27,19 @@ public class Verwaltung {
         }
     }
 
-    public void schieneWechseln(Stack von, Stack zu)
+    public void schieneWechseln(Stack<Wagon> von, Stack<Wagon> zu)
     {
         final Wagon zuWechselnderZug = von.top();
         von.pop();
         zu.push(zuWechselnderZug);
     }
 
-    public Wagon getTopWagon(Stack target)
+    public Wagon getTopWagon(Stack<Wagon> target)
     {
         return(target.top());
     }
 
-    private void zugHinzufügen(String ladung, Stack target)
+    private void zugHinzufügen(String ladung, Stack<Wagon> target)
     {
         final int zugId = idGenerieren();
         target.push(new Wagon(ladung, zugId));
