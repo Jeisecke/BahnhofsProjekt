@@ -7,8 +7,6 @@ public class Verwaltung {
     private Stack<Wagon> gleis2;
     private Stack<Wagon> gleis3;
 
-    private Stack<Wagon[] gleisArray;
-
     private int anzahlZüge;
 
     public Verwaltung()
@@ -16,8 +14,6 @@ public class Verwaltung {
         gleis1 = new Stack<Wagon>();
         gleis2 = new Stack<Wagon>();
         gleis3 = new Stack<Wagon>();
-
-        gleisArray = new Stack<Wagon>[]{gleis1, gleis2, gleis3};
 
         for (int i = 0; i < anzahlZüge; i++)
         {
@@ -53,7 +49,7 @@ public class Verwaltung {
     }
 
     public void sortierenZüge(){
-        while (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
+        if (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
             int kleinsterZug = 0;
             boolean toogle = true;
             if (toogle){
@@ -61,6 +57,7 @@ public class Verwaltung {
                     if (gleis2.top().id < kleinsterZug){
                         kleinsterZug = gleis2.top().id;
                         schieneWechseln(gleis2, gleis1);
+
                     }
                 }
                 while (!gleis1.isEmpty()){
@@ -69,7 +66,9 @@ public class Verwaltung {
                     }
 
                 }
-            }else{
+            }
+            else
+            {
                 while (!gleis1.isEmpty()){
                     if (gleis1.top().id < kleinsterZug){
                         kleinsterZug = gleis1.top().id;
