@@ -7,23 +7,29 @@ public class Verwaltung {
     private Stack<Wagon> gleis2;
     private Stack<Wagon> gleis3;
 
+    private Stack<Wagon[] gleisArray;
+
     private int anzahlZüge;
 
-    private int[] idList;
-
-    public Verwaltung(int anzahlZüge)
+    public Verwaltung()
     {
-        this.anzahlZüge = anzahlZüge;
-
         gleis1 = new Stack<Wagon>();
         gleis2 = new Stack<Wagon>();
         gleis3 = new Stack<Wagon>();
 
-        idList = new int[anzahlZüge]; //temporärer Wert! Bitte noch ändern!
+        gleisArray = new Stack<Wagon>[]{gleis1, gleis2, gleis3};
 
         for (int i = 0; i < anzahlZüge; i++)
         {
             zugHinzufügen(anzahlZüge+" Kartoffeln", gleis2);
+        }
+    }
+
+    public void printStacks()
+    {
+        for (int i = 0; i < gleis1.getStackSize(); i ++)
+        {
+            System.out.println("Stellle: "+i+" ");
         }
     }
 
@@ -43,7 +49,7 @@ public class Verwaltung {
     {
         final int zugId = idGenerieren();
         target.push(new Wagon(ladung, zugId));
-        idList[zugId] = zugId;
+        anzahlZüge ++;
     }
 
     private int idGenerieren()
