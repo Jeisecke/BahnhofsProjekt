@@ -25,14 +25,6 @@ public class Verwaltung {
         }
     }
 
-    public void printStacks()
-    {
-        for (int i = 0; i < gleis1.getStackSize(); i ++)
-        {
-            System.out.println("Stellle: "+i+" ");
-        }
-    }
-
     public void schieneWechseln(Stack<Wagon> von, Stack<Wagon> zu)
     {
         final Wagon zuWechselnderZug = von.top();
