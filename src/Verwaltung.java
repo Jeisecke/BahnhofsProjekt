@@ -7,20 +7,19 @@ public class Verwaltung {
     private Stack<Wagon> gleis2;
     private Stack<Wagon> gleis3;
 
-    private int anzahlZüge = 0;
+    private int anzahlZuege = 0;
 
     public Verwaltung(int anzahlZügeErstellen)
     {
-
-
         gleis1 = new Stack<Wagon>();
         gleis2 = new Stack<Wagon>();
         gleis3 = new Stack<Wagon>();
 
-        
+        String[] namenliste = {"Kartoffeln", "Eisenerz", "Werkzeuge", "Mehl", "Öl", "Personenverkehr", "Kohle", "Elektrotechnik"};
+
         for (int i = 0; i < anzahlZügeErstellen; i++)
         {
-            zugHinzufügen("Kartoffeln", gleis2);
+            zugHinzufügen(namenliste[i], gleis2);
         }
     }
 
@@ -36,11 +35,16 @@ public class Verwaltung {
         return(target.top());
     }
 
+    public int getAnzahlZüge()
+    {
+        return(anzahlZuege);
+    }
+
     private void zugHinzufügen(String ladung, Stack<Wagon> target)
     {
         final int zugId = idGenerieren();
         target.push(new Wagon(ladung, zugId));
-        anzahlZüge ++;
+        anzahlZuege ++;
     }
 
     private int idGenerieren()
@@ -54,8 +58,8 @@ public class Verwaltung {
     public void sortierenZüge(){
         if (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
             int kleinsterZug = 0;
-            boolean toogle = true;
-            if (toogle){
+            boolean toggle = true;
+            if (toggle){
                 while (!gleis2.isEmpty()){
                     if (getTopWagon(gleis2).id < kleinsterZug){
                         kleinsterZug = getTopWagon(gleis2).id;
@@ -84,7 +88,7 @@ public class Verwaltung {
                     }
                 }
             }
-            toogle = !toogle;
+            toggle = !toggle;
         }
     }
 }
