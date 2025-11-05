@@ -7,17 +7,20 @@ public class Verwaltung {
     private Stack<Wagon> gleis2;
     private Stack<Wagon> gleis3;
 
-    private int anzahlZüge;
+    private int anzahlZüge = 0;
 
-    public Verwaltung()
+    public Verwaltung(int anzahlZügeErstellen)
     {
+
+
         gleis1 = new Stack<Wagon>();
         gleis2 = new Stack<Wagon>();
         gleis3 = new Stack<Wagon>();
 
-        for (int i = 0; i < anzahlZüge; i++)
+        
+        for (int i = 0; i < anzahlZügeErstellen; i++)
         {
-            zugHinzufügen(anzahlZüge+" Kartoffeln", gleis2);
+            zugHinzufügen("Kartoffeln", gleis2);
         }
     }
 
