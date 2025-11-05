@@ -55,9 +55,9 @@ public class Verwaltung {
     }
 
     public void sortierenZüge(){
+        boolean toggle = true;
         if (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
             int kleinsterZug = 0;
-            boolean toggle = true;
             if (toggle){
                 while (!gleis2.isEmpty()){
                     if (getTopWagon(gleis2).id < kleinsterZug){
