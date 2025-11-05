@@ -23,7 +23,7 @@ public class Verwaltung {
 
     public void schieneWechseln(Stack<Wagon> von, Stack<Wagon> zu)
     {
-        final Wagon zuWechselnderZug = von.top();
+        final Wagon zuWechselnderZug = getTopWagon(von);
         von.pop();
         zu.push(zuWechselnderZug);
     }
@@ -54,14 +54,14 @@ public class Verwaltung {
             boolean toogle = true;
             if (toogle){
                 while (!gleis2.isEmpty()){
-                    if (gleis2.top().id < kleinsterZug){
-                        kleinsterZug = gleis2.top().id;
+                    if (getTopWagon(gleis2).id < kleinsterZug){
+                        kleinsterZug = getTopWagon(gleis2).id;
                         schieneWechseln(gleis2, gleis1);
 
                     }
                 }
                 while (!gleis1.isEmpty()){
-                    if (gleis1.top().id == kleinsterZug){
+                    if (getTopWagon(gleis1).id == kleinsterZug){
                         schieneWechseln(gleis1, gleis3);
                     }
 
@@ -70,13 +70,13 @@ public class Verwaltung {
             else
             {
                 while (!gleis1.isEmpty()){
-                    if (gleis1.top().id < kleinsterZug){
-                        kleinsterZug = gleis1.top().id;
+                    if (getTopWagon(gleis1).id < kleinsterZug){
+                        kleinsterZug = getTopWagon(gleis1).id;
                         schieneWechseln(gleis1, gleis2);
                     }
                 }
                 while (!gleis2.isEmpty()){
-                    if (gleis2.top().id == kleinsterZug){
+                    if (getTopWagon(gleis2).id == kleinsterZug){
                         schieneWechseln(gleis2, gleis3);
                     }
                 }
@@ -84,5 +84,4 @@ public class Verwaltung {
             toogle = !toogle;
         }
     }
-
 }
