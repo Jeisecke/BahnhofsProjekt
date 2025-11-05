@@ -1,4 +1,3 @@
-package bahnhofverwaltung;
 import java.util.Random;
 
 public class Verwaltung {

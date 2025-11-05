@@ -1,4 +1,3 @@
-package bahnhofverwaltung;
 
 /**
  * <p>

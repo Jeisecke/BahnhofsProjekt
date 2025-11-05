@@ -1,12 +1,10 @@
-package bahnhofverwaltung;
-
 import javax.swing.*;
 import java.awt.*;
 import java.text.NumberFormat;
 
 public class Gui extends JFrame {
     private JFormattedTextField field1, field2, field3;
-    private JButton btnAdd, btnRemove, btnReset, btnClose;
+    private JButton btnAdd, btnStep, btnReset, btnClose;
 
     public Gui() {
         super("Bahnhof Verwaltung - Demo GUI");
@@ -46,7 +44,7 @@ public class Gui extends JFrame {
         // Buttons-Panel (knöpfe machen noch nichts, Close schließt)
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         btnAdd = new JButton("Add");
-        btnRemove = new JButton("Remove");
+        btnStep = new JButton("Step");
         btnReset = new JButton("Reset");
         btnClose = new JButton("Close");
 
@@ -54,7 +52,7 @@ public class Gui extends JFrame {
         btnAdd.addActionListener(e -> {
             // TODO: Implement action
         });
-        btnRemove.addActionListener(e -> {
+        btnStep.addActionListener(e -> {
             // TODO: Implement action
         });
         btnReset.addActionListener(e -> {
@@ -66,7 +64,7 @@ public class Gui extends JFrame {
         btnClose.addActionListener(e -> dispose());
 
         buttons.add(btnAdd);
-        buttons.add(btnRemove);
+        buttons.add(btnStep);
         buttons.add(btnReset);
         buttons.add(btnClose);
 

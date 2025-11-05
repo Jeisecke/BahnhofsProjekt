@@ -1,4 +1,3 @@
-package bahnhofverwaltung;
 
 public class Wagon {
     String ladung;
