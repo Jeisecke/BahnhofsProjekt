@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class Verwaltung {
 
-    private Stack<Wagon> gleis1;
-    private Stack<Wagon> gleis2;
-    private Stack<Wagon> gleis3;
+    public Stack<Wagon> gleis1;
+    public Stack<Wagon> gleis2;
+    public Stack<Wagon> gleis3;
 
     private int anzahlZuege = 0;
 
@@ -17,8 +17,9 @@ public class Verwaltung {
         String[] namenliste = {"Kartoffeln", "Eisenerz", "Werkzeuge", "Mehl", "Öl", "Personenverkehr", "Kohle", "Elektrotechnik"};
 
         for (int i = 0; i < anzahlZügeErstellen; i++)
-        {
-            zugHinzufügen(namenliste[i], gleis2);
+        {   int ii = i;
+            while (ii >= namenliste.length) ii -= namenliste.length;
+            zugHinzufügen(namenliste[ii], gleis2);
         }
     }
 
@@ -39,7 +40,7 @@ public class Verwaltung {
         return(anzahlZuege);
     }
 
-    private void zugHinzufügen(String ladung, Stack<Wagon> target)
+    public void zugHinzufügen(String ladung, Stack<Wagon> target)
     {
         final int zugId = idGenerieren();
         target.push(new Wagon(ladung, zugId));

@@ -8,10 +8,15 @@ public class Gui extends JFrame {
 
     public Gui() {
         super("Bahnhof Verwaltung - Demo GUI");
+
         initComponents();
+
+
     }
 
     private void initComponents() {
+        Verwaltung verwaltung;
+        verwaltung = new Verwaltung(10);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JPanel main = new JPanel(new BorderLayout(10, 10));
@@ -32,8 +37,6 @@ public class Gui extends JFrame {
         field2.setEditable(false);
         field3.setEditable(false);
 
-        field1.setValue(1);
-
         fields.add(new JLabel("Zahl 1:"));
         fields.add(field1);
         fields.add(new JLabel("Zahl 2:"));
@@ -53,7 +56,7 @@ public class Gui extends JFrame {
             // TODO: Implement action
         });
         btnStep.addActionListener(e -> {
-            // TODO: Implement action
+            verwaltung.zugHinzufügen("Kartoffeln", verwaltung.gleis1);
         });
         btnReset.addActionListener(e -> {
             // Reset fields to empty
