@@ -2,24 +2,31 @@ import java.util.Random;
 
 public class Verwaltung {
 
+    //TODO: private implementieren
     public Stack<Wagon> gleis1;
     public Stack<Wagon> gleis2;
     public Stack<Wagon> gleis3;
 
+    //TODO: Möglicherweise Anzahl der Züge im GUI anzeigen?
     private int anzahlZuege = 0;
 
+    //globale variable nötig zum sortieren
+    private boolean toggle = true;
+
+    //konstruktor
     public Verwaltung(int anzahlZügeErstellen)
     {
         gleis1 = new Stack<Wagon>();
         gleis2 = new Stack<Wagon>();
         gleis3 = new Stack<Wagon>();
 
+        //namenliste damit nicht alle Wgen dasselbe heißen
         String[] namenliste = {"Kartoffeln", "Eisenerz", "Werkzeuge", "Mehl", "Öl", "Personenverkehr", "Kohle", "Elektrotechnik"};
 
         for (int i = 0; i < anzahlZügeErstellen; i++)
         {   int ii = i;
             while (ii >= namenliste.length) ii -= namenliste.length;
-            zugHinzufügen(namenliste[ii], gleis2);
+            zugHinzufügen(namenliste[ii]+"-"+i, gleis2);
         }
     }
 
@@ -56,7 +63,7 @@ public class Verwaltung {
     }
 
     public void sortierenZüge(){
-        boolean toggle = true;
+        toggle = !toggle;
         if (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
             int kleinsterZug = 0;
             if (toggle){
