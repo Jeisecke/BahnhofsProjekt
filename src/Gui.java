@@ -5,6 +5,7 @@ import java.text.NumberFormat;
 public class Gui extends JFrame {
     private JFormattedTextField field1, field2, field3;
     private JButton btnAdd, btnStep, btnReset, btnClose;
+    private Verwaltung verwaltung;
 
     public Gui() {
         super("Bahnhof Verwaltung - Demo GUI");
@@ -15,9 +16,8 @@ public class Gui extends JFrame {
     }
 
     private void initComponents() {
-        Verwaltung verwaltung;
-        verwaltung = new Verwaltung(10);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        verwaltung = new Verwaltung(10);
 
         JPanel main = new JPanel(new BorderLayout(10, 10));
 
@@ -53,10 +53,12 @@ public class Gui extends JFrame {
 
         // Keine Logik implementiert - Platzhalter
         btnAdd.addActionListener(e -> {
-            // TODO: Implement action
+            verwaltung.zugHinzufuegen("Kartoffeln", verwaltung.gleis2);
+            anzeigeAktualisieren();
         });
         btnStep.addActionListener(e -> {
-            verwaltung.zugHinzufügen("Kartoffeln", verwaltung.gleis1);
+            verwaltung.sortierenZuege();
+            anzeigeAktualisieren();
         });
         btnReset.addActionListener(e -> {
             // Reset fields to empty
@@ -78,6 +80,26 @@ public class Gui extends JFrame {
         setContentPane(main);
         pack();
         setLocationRelativeTo(null);
+        anzeigeAktualisieren();
+    }
+
+    public void anzeigeAktualisieren(){
+        String g1 = null, g2 = null, g3 = null;
+        if (verwaltung.gleis1.top() != null){
+             g1 = String.valueOf(verwaltung.gleis1.top().id);
+        }
+        if (verwaltung.gleis2.top() != null){
+             g2 = String.valueOf(verwaltung.gleis2.top().id);
+        }
+        if (verwaltung.gleis3.top() != null){
+             g3 = String.valueOf(verwaltung.gleis3.top().id);
+        }
+
+
+
+        field1.setText(g1);
+        field2.setText(g2);
+        field3.setText(g3);
     }
 
     public static void showGui() {
