@@ -132,4 +132,32 @@ public class Stack<ContentType> {
     public int getStackSize() {
         return stackSize;
     }
+
+    /**
+     * Erstellt eine tiefe Kopie des Stacks.
+     * @return eine neue Stack-Instanz mit denselben Elementen in derselben Reihenfolge
+     */
+    public Stack<ContentType> copy() {
+        if (isEmpty()) {
+            return new Stack<>();
+        }
+        
+        Stack<ContentType> tempStack = new Stack<>();
+        Stack<ContentType> resultStack = new Stack<>();
+        
+        // Alle Elemente in tempStack verschieben
+        StackNode current = head;
+        while (current != null) {
+            tempStack.push(current.getContent());
+            current = current.getNext();
+        }
+        
+        // Von tempStack in resultStack verschieben (stellt richtige Reihenfolge wieder her)
+        while (!tempStack.isEmpty()) {
+            resultStack.push(tempStack.top());
+            tempStack.pop();
+        }
+        
+        return resultStack;
+    }
 }
