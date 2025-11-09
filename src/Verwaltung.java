@@ -62,6 +62,7 @@ public class Verwaltung {
         return id;
     }
 
+    //TODO: Testen!
     public void sortierenZüge(){
         toggle = !toggle;
         if (!gleis1.isEmpty() && !gleis2.isEmpty() && !gleis3.isEmpty()){
