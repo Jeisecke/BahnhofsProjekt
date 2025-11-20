@@ -21,7 +21,7 @@ public class Gui extends JFrame {
 
         final JPanel main = new JPanel(new BorderLayout(10, 10));
 
-        // Felder-Panel (3 Zahlenfelder)
+        // Felder-Panel
         final JPanel fields = new JPanel(new GridLayout(3, 2, 5, 5));
         final NumberFormat intFormat = NumberFormat.getIntegerInstance();
         this.field1 = new JFormattedTextField(intFormat);
@@ -37,14 +37,13 @@ public class Gui extends JFrame {
         this.field2.setEditable(false);
         this.field3.setEditable(false);
 
-        fields.add(new JLabel("Zahl 1:"));
+        fields.add(new JLabel("Gleis 1:"));
         fields.add(this.field1);
-        fields.add(new JLabel("Zahl 2:"));
+        fields.add(new JLabel("Gleis 2:"));
         fields.add(this.field2);
-        fields.add(new JLabel("Zahl 3:"));
+        fields.add(new JLabel("Gleis 3:"));
         fields.add(this.field3);
 
-        // Buttons-Panel (Knöpfe machen noch nichts, Close schließt)
         final JPanel buttons = getJPanel();
 
         main.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -65,7 +64,6 @@ public class Gui extends JFrame {
         JButton btnPrint = new JButton("Print");
         JButton btnClose = new JButton("Close");
 
-        // Keine Logik implementiert - Platzhalter
         btnAdd.addActionListener(e -> {
             String[] listeNamen = {"Kartoffeln", "Eisenerz", "Werkzeuge", "Mehl", "Öl", "Kohle", "Elektrotechnik", "Müll", "Holz", "Waren", "Gefahrgut"};
             int ii = verwaltung.random.nextInt(listeNamen.length);
@@ -81,6 +79,7 @@ public class Gui extends JFrame {
             this.field1.setValue(null);
             this.field2.setValue(null);
             this.field3.setValue(null);
+            this.verwaltung = new Verwaltung(0);
         });
         btnPrint.addActionListener(e -> this.verwaltung.printStacks());
         btnClose.addActionListener(e -> System.exit(0));
